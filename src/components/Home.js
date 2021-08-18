@@ -1,9 +1,10 @@
-import React from 'react'
+import  { Link } from 'react-router-dom';
 
 const Home = () => {
   return (
-    <div>
-      home
+    <div className='home-container'>
+        <h1>GitHub Battle: battle your friends... and stuff</h1>
+        <Link className='button' to='/battle'>Battle</Link>
     </div>
   )
 }
