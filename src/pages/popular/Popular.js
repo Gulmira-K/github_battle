@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getPopularRepos } from "../api/getPopularRepos";
+import { getPopularRepos } from "../../api/getPopularRepos";
 import Loader from "react-loader-spinner";
 import SelectedLang from "./SelectedLang";
 import ReposGrid from "./ReposGrid";
@@ -49,7 +49,7 @@ const Popular = () => {
           <div className='loader'>
             <Loader
               type="TailSpin"
-              color="#00BFFF"
+              color="#d0021aaf"
               height={100}
               width={100}
               timeout={1000} //3 secs
