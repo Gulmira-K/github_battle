@@ -3,18 +3,30 @@ import { Link } from "react-router-dom";
 import PlayerInput from "./PlayerInput";
 import PlayerPreview from "./PlayerPreview";
 
-const Battle = () => {
+const Battle = (props) => {
   const [playerOneName, setPlayerOneName] = useState('');
   const [playerTwoName, setPlayerTwoName] = useState('');
   const [playerOneImage, setPlayerOneImage] = useState(null);
   const [playerTwoImage, setPlayerTwoImage] = useState('');
 
-  const onSubmitHandler = () => {
-    
+  const onSubmitHandler = (id, username) => {
+    if (id === 'playerOne') {
+      setPlayerOneName(username);
+      setPlayerOneImage(`https://github.com/${username}.png?size=200`)
+    } else {
+      setPlayerTwoName(username);
+      setPlayerTwoImage(`https://github.com/${username}.png?size=200`)
+    }
   }
 
-  const handleReset =()=> {
-       
+  const handleReset =(id)=> {
+    if (id === 'playerOne') {
+      setPlayerOneName('');
+      setPlayerOneImage(null)
+    } else {
+      setPlayerTwoName('');
+      setPlayerTwoImage(null)
+    } 
   }
 
   return (
@@ -49,8 +61,8 @@ const Battle = () => {
     </div>
       {playerOneImage && playerTwoImage &&
         <Link className='button' to={{
-          pathname: this.props.match.url + '/results',
-          search: '?playerOneName=' + playerOneName + '&playerTwoName=' + playerTwoName
+          pathname: `${props.match.url}/results`,
+          search: `?playerOneName=${playerOneName}&playerTwoName=${playerTwoName}`
         }}>
           Battle
         </Link>

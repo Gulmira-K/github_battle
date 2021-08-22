@@ -14,7 +14,7 @@ const Popular = () => {
     
     setTimeout(() => {
       setLoading(false)
-    }, 1000)
+    }, 1500)
   }
 
   const updateLang = (e) => {
@@ -42,6 +42,7 @@ const Popular = () => {
       <SelectedLang
         selectedLang={selectedLang}
         updateLang={updateLang}
+        loading={loading}
       />
       {
         !loading ?
